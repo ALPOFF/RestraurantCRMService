@@ -9,5 +9,5 @@ def get_database():
     if not connection_string:
         raise RuntimeError("Bad connection string")
     client = MongoClient(connection_string, tlsCAFile=certifi.where())
-    database = client["TablesClaims"]
+    database = client["TablesClaims"]["Restaurants"]
     return database
