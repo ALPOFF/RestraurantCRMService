@@ -21,9 +21,9 @@
                 "tables_plan_photo": "photo_to_plan",
                 "maximum_tables": 10000
             },
-            "current_claims": [
-                {
-                    "claim_id": 0,
+                "current_claims": [
+                    {
+                        "claim_id": 0,
                     "timestamp": 1000000,
                     "user_prefers": []
                 }
