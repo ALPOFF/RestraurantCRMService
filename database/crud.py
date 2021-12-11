@@ -8,6 +8,13 @@ def create_restaurant(restaurant):
     database.insert_one(restaurant)
 
 
+def get_restaurant_by_login(login: str):
+    database = get_database()
+    login_filter = {"auth_info.login": login}
+    target = database.find_one(filter=login_filter)
+    return target
+
+
 def get_restaurants():
     database = get_database()
     query_iterator = database["Restaurants"].find()
