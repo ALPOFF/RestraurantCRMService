@@ -1,61 +1,41 @@
 from fastapi import APIRouter
+from fastapi import HTTPException
+from database.crud import get_restaurant_by_login
+from core.models import AuthInfo
 
 restaurant_router = APIRouter()
 
 
+# На этапе прототипирования получаем инфу напрямую по логину без авторизации
+# и различных веселых секурных штук
+
 @restaurant_router.get("/restaurant_info")
-def restaurant_info():
-    return [
-        {
-            "title": "test_title",
-            "address": {
-                "city": "test_city",
-                "street": "test_street",
-                "building": 10
-            },
-            "information": "test_information"
-        }
-    ]
+async def restaurant_info(login: str):
+    restaurant = get_restaurant_by_login(login=login)
+    if not restaurant:
+        raise HTTPException(status_code=401, detail="Bad login")
+    return restaurant["restaurant_info"]
 
 
 @restaurant_router.get("/dishes_list")
-def dishes_list():
-    return [
-        {
-            "title": "dish_title1",
-            "description": "description1",
-            "recipe": "recipe1",
-            "photo_path": "path_to_photo1"
-        },
-        {
-            "title": "dish_title2",
-            "description": "description2",
-            "recipe": "recipe2",
-            "photo_path": "path_to_photo2"
-        },
-    ]
+async def dishes_list(login: str):
+    restaurant = get_restaurant_by_login(login=login)
+    if not restaurant:
+        raise HTTPException(status_code=401, detail="Bad login")
+    return restaurant["restaurant_info"]["dishes"]
 
 
 @restaurant_router.get("/tables_configuration")
-def tables_configuration():
-    return {
-        "table_plan_photo": "photo_to_plan",
-        "restaurant_photo": "photo_to_restaurant",
-        "maximum_tables": 6
-    }
+async def tables_configuration(login: str):
+    restaurant = get_restaurant_by_login(login=login)
+    if not restaurant:
+        raise HTTPException(status_code=401, detail="Bad login")
+    return restaurant["restaurant_info"]["tables_configuration"]
 
 
 @restaurant_router.get("/claims")
-def current_claims():
-    return [
-        {
-            "claim_id": 0,
-            "timestamp": 100000,
-            "user_prefers": []
-        },
-        {
-            "claim_id": 1,
-            "timestamp": 90000,
-            "user_prefers": []
-        }
-    ]
+async def current_claims(login: str):
+    restaurant = get_restaurant_by_login(login=login)
+    if not restaurant:
+        raise HTTPException(status_code=401, detail="Bad login")
+    return restaurant["restaurant_info"]["current_claims"]
