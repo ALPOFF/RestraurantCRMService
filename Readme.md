@@ -1,4 +1,5 @@
-#Deploy guide
+###Deploy guide
+
 For correct working service you should setup 3 environment variable:
 - CONNECTION_STRING - Required for connection to your mongodb instance
 - algorithm - Password encryption algorithm
