@@ -11,7 +11,6 @@ auth_engine = AuthEngine()
 def register_restaurant(restaurant_description: Restaurant):
     # At this moment we hardcode this route
     default_restaurant = {
-        {
             "auth_info": {
                 "login": "Alex",
                 "password": auth_engine.hash_password("password_hash")
@@ -54,6 +53,5 @@ def register_restaurant(restaurant_description: Restaurant):
                     }
                 ]
             }
-        }
     }
     create_restaurant(default_restaurant)
