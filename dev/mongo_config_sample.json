@@ -1,0 +1,33 @@
+[
+    {
+        "auth_info": {
+            "login": "login",
+            "password": "password_hash"
+        },
+        "restaurant_info": {
+            "title": "test_title",
+            "address": "test_address",
+            "information": "test_information",
+            "restaurant_photo": "photo_to_restaurant",
+            "dishes": [
+                {
+                    "title": "dish_title",
+                    "description": "dish_description",
+                    "recipe": "dish_recipe",
+                    "photo": "dish_photo"
+                }
+            ],
+            "tables_configuration": {
+                "tables_plan_photo": "photo_to_plan",
+                "maximum_tables": 10000
+            },
+            "current_claims": [
+                {
+                    "claim_id": 0,
+                    "timestamp": 1000000,
+                    "user_prefers": []
+                }
+            ]
+        }
+    }
+]
