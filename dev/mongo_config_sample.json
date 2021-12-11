@@ -6,7 +6,11 @@
         },
         "restaurant_info": {
             "title": "test_title",
-            "address": "test_address",
+            "address": {
+                "city": "Sarov",
+                "street": "Axmeda",
+                "building": 10
+            },
             "information": "test_information",
             "restaurant_photo": "photo_to_restaurant",
             "dishes": [
@@ -21,9 +25,14 @@
                 "tables_plan_photo": "photo_to_plan",
                 "maximum_tables": 10000
             },
-                "current_claims": [
-                    {
-                        "claim_id": 0,
+            "current_claims": [
+                {
+                    "claim_id": 0,
+                    "timestamp": 1000000,
+                    "user_prefers": []
+                },
+                {
+                    "claim_id": 1,
                     "timestamp": 1000000,
                     "user_prefers": []
                 }
