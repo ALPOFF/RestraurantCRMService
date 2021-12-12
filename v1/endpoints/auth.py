@@ -48,7 +48,7 @@ def register_restaurant(restaurant_description: Restaurant):
                     },
                     {
                         "table_number": 5,
-                        "timestamp": 1639216800
+                        "timestamp": 1639213200
                     }
                 ]
             }
