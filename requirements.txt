@@ -5,3 +5,5 @@ fastapi~=0.68.1
 uvicorn
 PyJWT~=1.7.1
 passlib~=1.7.4
+pydantic~=1.8.2
+dnspython

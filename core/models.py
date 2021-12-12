@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 
 class AuthInfo(BaseModel):
@@ -17,7 +18,17 @@ class RestaurantAddress(BaseModel):
     city: str
     street: str
     building: int
-    dishes: [Dish]
+
+
+class TablesConfiguration(BaseModel):
+    tables_plan_photo_path: str
+    current_tables: int
+    maximum_tables: int
+
+
+class Claim(BaseModel):
+    table_number: int
+    timestamp: int
 
 
 class RestaurantInfo(BaseModel):
@@ -25,21 +36,9 @@ class RestaurantInfo(BaseModel):
     address: RestaurantAddress
     information: str
     restaurant_photo_path: str
-
-
-class TablesConfiguration(BaseModel):
-    tables_plan_photo_path: str
-    maximum_tables: int
-
-
-class Claim(BaseModel):
-    claim_id: int
-    timestamp: int
-    user_prefers: [str]
-
-
-class CurrentClaims:
-    claims: [Claim]
+    dishes: List[Dish]
+    tables_configuration: TablesConfiguration
+    current_claims: List[Claim]
 
 
 class Restaurant(BaseModel):
