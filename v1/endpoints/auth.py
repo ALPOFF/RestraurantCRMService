@@ -38,18 +38,17 @@ def register_restaurant(restaurant_description: Restaurant):
                 ],
                 "tables_configuration": {
                     "tables_plan_photo": "https://i.pinimg.com/originals/40/50/8f/40508fd7ede54ae72e3ce6d3ea08a20a.jpg",
+                    "current_tables": 20,
                     "maximum_tables": 20
                 },
                 "current_claims": [
                     {
-                        "claim_id": 0,
-                        "timestamp": 1639213200,
-                        "user_prefers": []
+                        "table_number": 10,
+                        "timestamp": 1639213200
                     },
                     {
-                        "claim_id": 1,
-                        "timestamp": 1639216800,
-                        "user_prefers": []
+                        "table_number": 5,
+                        "timestamp": 1639216800
                     }
                 ]
             }
