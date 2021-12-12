@@ -1,28 +1,29 @@
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
+import "./AuthComponent.css";
 
-const AuthComponent = () => {
+const AuthComponent = (props) => {
   const auth = () => {
     localStorage.setItem("isAuth", true);
+    props.history.push("/");
   };
 
   if (localStorage.getItem("isAuth")) return <Redirect to={"/"} />;
 
   return (
-    <>
-      <h4>Авторизация</h4>
-      <div>
-        <div>
-          Логин
+    <div className="login-container">
+      <div className="login">
+        <div className="login-item">
+          <span>Логин</span>
           <input type="text" />
         </div>
-        <div>
-          Пароль
+        <div className="login-item">
+          <span>Пароль</span>
           <input type="text" />
         </div>
       </div>
-      <button onClick={auth}>Login</button>
-    </>
+      <button onClick={auth}>Войти</button>
+    </div>
   );
 };
 
-export default AuthComponent;
+export default withRouter(AuthComponent);

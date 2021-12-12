@@ -1,14 +1,18 @@
-const RestPicComponent = () => {
-	return (
-		<div>
-			<div>Фотография ресторана</div>
-			<div>Картинка</div>
-			<div>
-				<button>Изменить</button>
-				<button>Сохранить</button>
-			</div>
-		</div>
-	);
+import "./RestPicComponent.css";
+
+const RestPicComponent = ({ restaurantPhoto }) => {
+  return (
+    <div className="rest-pic">
+      <div>Фотография ресторана</div>
+      <div>
+        <img src={restaurantPhoto} alt={restaurantPhoto} />
+      </div>
+      <div>
+        <button>Изменить</button>
+        <button>Сохранить</button>
+      </div>
+    </div>
+  );
 };
 
 export default RestPicComponent;

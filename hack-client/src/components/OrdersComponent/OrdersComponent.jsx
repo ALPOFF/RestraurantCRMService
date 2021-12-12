@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { mainAPI } from "../../common/api/api";
 import { Redirect } from "react-router-dom";
 import ChildOrderComponent from "./ChildOrderComponent/ChildOrderComponent";
+import "./OrdersComponent.css";
 
 const OrdersComponent = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     mainAPI.getOrders().then((data) => {
-      console.log(data);
       setOrders(data);
     });
   }, []);
@@ -15,11 +15,13 @@ const OrdersComponent = () => {
   if (localStorage.getItem("isAuth") == null) return <Redirect to={"/auth/"} />;
 
   return (
-    <div>
+    <div className="order-container">
       Забронированные столики:
-      {orders.map((el) => (
-        <ChildOrderComponent key={el.claim_id} /> //Сюда отдавать данные
-      ))}
+      <div className="order-child-container">
+        {orders.map((el) => (
+          <ChildOrderComponent key={el.claim_id} /> //Сюда отдавать данные
+        ))}
+      </div>
     </div>
   );
 };
