@@ -22,13 +22,12 @@ class RestaurantAddress(BaseModel):
 
 class TablesConfiguration(BaseModel):
     tables_plan_photo_path: str
+    current_tables: int
     maximum_tables: int
 
 
 class Claim(BaseModel):
-    claim_id: int
     timestamp: int
-    user_prefers: List[str]
 
 
 class RestaurantInfo(BaseModel):
